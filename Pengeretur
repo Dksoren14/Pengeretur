@@ -1,0 +1,54 @@
+import random
+import string
+import os
+os.system("cls")
+
+madvare = {
+    "Burger":50,
+    "Pizza":60,
+    "Pasta":45,
+    "Suppe":40,
+}
+drikkevare = {
+    "Sodavand":20,
+    "Vand":15,
+    "Øl":25,
+    "Vin":30
+}
+beløb1 = 0
+beløb2 = 0
+beløbfuld = 0
+menu1 = ""
+menu2 = ""
+for j in range(3):
+    menu1 = random.choice(list(madvare))
+    menu2 = random.choice(list(drikkevare))
+    beløb1 += madvare[menu1]
+    beløb2 += drikkevare[menu2]
+    beløbfuld += beløb1 + beløb2
+    print(menu1,madvare[menu1],"dkk",menu2,drikkevare[menu2],"dkk")
+print("Fulde beløb =",beløbfuld,"dkk")
+    
+print("Hvor mange drikkepenge vil du give?")
+print("5% tryk 1, 10% tryk 2, 15% tryk 3, andet tryk 4")
+
+
+svar = input()
+if svar == "1":
+    drikkepengefuldbeløb = beløbfuld * 1.05
+    drikkepengekunbeløb = beløbfuld * 0.05
+    print("Fulde beløb",round(drikkepengefuldbeløb),"Drikkepenge givet", round(drikkepengekunbeløb))
+if svar == "2":
+    drikkepengefuldbeløb = beløbfuld * 1.10
+    drikkepengekunbeløb = beløbfuld * 0.10
+    print("Fulde beløb",round(drikkepengefuldbeløb),"Drikkepenge givet", round(drikkepengekunbeløb))
+if svar == "3":
+    drikkepengefuldbeløb = beløbfuld * 1.15
+    drikkepengekunbeløb = beløbfuld * 0.15
+    print("Fulde beløb",round(drikkepengefuldbeløb),"Drikkepenge givet", round(drikkepengekunbeløb))
+if svar == "4":
+    andet = float(input())
+    drikkepengefuldbeløb = ((0.01 * andet)+ 1 )* beløbfuld 
+    drikkepengekunbeløb = beløbfuld * (0.01 * andet)
+    print("Fulde beløb",round(drikkepengefuldbeløb),"Drikkepenge givet", round(drikkepengekunbeløb))   
+
